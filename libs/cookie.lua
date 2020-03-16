@@ -37,7 +37,7 @@ function cookie.createText(cookies)
     text.x = mouse.x - 12
     text.y = mouse.y - 16
     text.color = {1,1,1,1}
-    text.string = "+ " .. 1
+    text.string = "+ " .. game.clickRate
     table.insert(numberString, text)
 end
 

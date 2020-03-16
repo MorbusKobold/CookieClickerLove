@@ -54,6 +54,7 @@ function love.draw()
         love.graphics.circle("line",circle.x,circle.y,circle.radius)
         love.graphics.setColor(1,1,1)
         love.graphics.print("Cookies: " .. game.cookies,0,16)
+        love.graphics.print("clickRate: " .. game.clickRate,0,32)
     end
     if t then
         love.graphics.draw(images.tileset,0,0,0,0.4,0.5)
@@ -66,7 +67,7 @@ end
 
 function love.mousepressed(x, y, button)
     if button == 1 and collision.pointInCircle(mouse.x,mouse.y,circle.x,circle.y,circle.radius) then
-        game.cookies = game.cookies + 1
+        game.cookies = game.cookies + game.clickRate
         cookie.click(true)
     end
 end
