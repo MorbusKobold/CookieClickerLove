@@ -45,6 +45,9 @@ function cookie.updateText()
     for i, v in pairs(numberString) do
         v.y = v.y - 1
         v.color[4] = v.color[4] - 0.01
+        if v.color[4] <= 0.7 then
+            table.remove(numberString,i)
+        end
     end
 end
 
