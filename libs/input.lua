@@ -18,7 +18,7 @@ function input.keypressed(key)
     if key == input.key_t then
         t = not t
     end
-    if key == input.key_minus then
+    if key == input.key_minus and game.clickRate-100 >= 0 then
         game.clickRate = game.clickRate - 100
     end
     if key == input.key_plus then
