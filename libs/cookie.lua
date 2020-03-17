@@ -54,12 +54,14 @@ function cookie.updateText()
 end
 
 function cookie.drawText()
+    love.graphics.setFont(window.gameFont)
     for i, v in pairs(numberString) do
         love.graphics.setColor(v.color)
         love.graphics.print(v.string,v.x,v.y)
         love.graphics.setColor(1,1,1,1)
     end
-    love.graphics.print("Cookies: " .. math.floor(game.cookies),window.WIDTH/2-70,16)
+    love.graphics.print("Cookies: " .. math.floor(game.cookies),window.WIDTH/2-85,16)
+    love.graphics.setFont(window.defaultFont)
 end
 
 function cookie.createRain(number)
