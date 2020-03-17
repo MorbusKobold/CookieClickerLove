@@ -5,6 +5,7 @@ mouse = require "libs.mouse"
 game = require "libs.game"
 input = require "libs.input"
 cookie = require "libs.cookie"
+numberHandler = require "libs.numberHandler"
 
 debug = true
 t = false
@@ -61,9 +62,10 @@ function love.draw()
         love.graphics.circle("line",circle.x,circle.y,circle.radius)
         love.graphics.setColor(1,1,1)
         love.graphics.print("clickRate: " .. game.clickRate,0,16)
-        love.graphics.print("cookieRate: " .. game.cookieRate,0,32)
+        love.graphics.print("cookieRate: " .. math.floor(game.cookieRate),0,32)
         love.graphics.print("rainingCookies: " .. #cookie.rainingCookies,0,48)
         love.graphics.print("Fps: " .. love.timer.getFPS(),0,64)
+        love.graphics.print("numberIndex: " .. numberHandler.i,0,80)
     end
     if t then
         love.graphics.draw(images.tileset,0,0,0,0.4,0.5)
@@ -90,4 +92,9 @@ function boolToNumb(val, mode)
     else
         return false
     end
+end
+
+function round(num, numDecimalPlaces)
+    local mult = 10^(numDecimalPlaces or 0)
+    return math.floor(num * mult + 0.5) / mult
 end

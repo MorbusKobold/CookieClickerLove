@@ -1,13 +1,5 @@
 local cookie = {}
 local numberString = {}
-local numberNames = {
-    [1] = "million",
-    [2] = "billion",
-    [3] = "trillion",
-    [4] = "quadrillion",
-    [5] = "quintillion"
-}
-
 
 function cookie.load(image)
     cookie.x = love.graphics.getWidth()/2-image:getWidth()/2
@@ -46,31 +38,8 @@ function cookie.createText(cookies)
     text.x = mouse.x
     text.y = mouse.y - 16
     text.color = {1,1,1,1}
-    text.string = "+ " .. cookie.numberHandler(game.clickRate)
+    text.string = "+ " .. game.clickRate
     table.insert(numberString, text)
-end
-
-function cookie.numberHandler(number)
-    local string = nil
-    if number >= 10^6 and number < 10^9 then
-        string = math.floor(number/10^6) .. " " .. numberNames[1]
-        return string
-    elseif number >= 10^9 and number < 10^12 then
-        string = math.floor(number/10^9) .. " " .. numberNames[2]
-        return string
-    elseif number >= 10^12 and number < 10^15 then
-        string = math.floor(number/10^12) .. " " .. numberNames[3]
-        return string
-    elseif number >= 10^15 and number < 10^18 then
-        string = math.floor(number/10^15) .. " " .. numberNames[4]
-        return string
-    elseif number >= 10^18 and number < 10^21 then
-        string = math.floor(number/10^21) .. " " .. numberNames[5]
-        return string
-    else
-        string = math.floor(number) .. " " .. "???"
-        return string
-    end
 end
 
 function cookie.updateText()
@@ -90,12 +59,12 @@ function cookie.drawText()
         love.graphics.print(v.string,v.x,v.y)
         love.graphics.setColor(1,1,1,1)
     end
-    love.graphics.print("Cookies: " .. cookie.numberHandler(game.cookies),window.WIDTH/2-85,16)
+    love.graphics.print("Cookies: " .. numberHandler.numberToText(game.cookies),window.WIDTH/2-300,16)
     love.graphics.setFont(window.defaultFont)
 end
 
 function cookie.createRain(number)
-    if #cookie.rainingCookies <= 750 then
+    if #cookie.rainingCookies <= 800 then
         for i=1, number do
             local rainingCookie = {}
             rainingCookie.x = love.math.random(-20,window.WIDTH-20)
