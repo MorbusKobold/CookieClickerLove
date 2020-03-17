@@ -34,7 +34,7 @@ end
 
 function cookie.createText(cookies)
     local text = {}
-    text.x = mouse.x - 12
+    text.x = mouse.x
     text.y = mouse.y - 16
     text.color = {1,1,1,1}
     text.string = "+ " .. game.clickRate
