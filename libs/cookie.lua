@@ -79,6 +79,7 @@ end
 function cookie.updateRain()
     for i, v in pairs(cookie.rainingCookies) do
         v.y = v.y + v.speed
+        v.angle = v.angle + 0.01
         if v.y >= window.HEIGHT+85 then
             table.remove(cookie.rainingCookies,i)
         end

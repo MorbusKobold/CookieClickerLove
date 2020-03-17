@@ -42,13 +42,13 @@ function numberHandler.numberToText(number)
         cookie.createRain(numberHandler.i*8)
     end
     if number >= 0 and number < numberHandler.minimum then
-        string = round(number, 4)
+        string = round(number, 3)
         return string
     elseif number >= numberHandler.minimum and number < numberHandler.maximum and numberHandler.i <= #numberHandler.names then
-        string = round(number/numberHandler.minimum, 4) .. " " .. numberHandler.names[numberHandler.i]
+        string = round(number/numberHandler.minimum, 3) .. " " .. numberHandler.names[numberHandler.i]
         return string
     else
-        return round(number, 4) .. " BigAssNumber"
+        return round(number, 3) .. " BigAssNumber"
     end
 end
 
