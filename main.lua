@@ -34,6 +34,13 @@ function love.update(dt)
 
     -- update cookies
     cookie.update(dt)
+    cookie.updateRain()
+
+    if game.cookies >= 1000 then
+        game.cookies = game.cookies - 1000
+        game.cookieRate = game.cookieRate + 100
+        cookie.createRain(50)
+    end
 
     if collision.pointInCircle(mouse.x,mouse.y,circle.x,circle.y,circle.radius) then
         hasCollision = true
@@ -48,6 +55,7 @@ end
 
 function love.draw()
     love.graphics.draw(background.image,0,0,0,background.sx,background.sy)
+    cookie.drawRain()
     cookie.draw()
     cookie.click(false)
     cookie.drawText()
@@ -58,6 +66,8 @@ function love.draw()
         love.graphics.setColor(1,1,1)
         love.graphics.print("clickRate: " .. game.clickRate,0,32)
         love.graphics.print("cookieRate: " .. game.cookieRate,0,64)
+        love.graphics.print("rainingCookies: " .. #cookie.rainingCookies,0,96)
+        love.graphics.print("Fps: " .. love.timer.getFPS(),0,128)
     end
     if t then
         love.graphics.draw(images.tileset,0,0,0,0.4,0.5)

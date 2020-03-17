@@ -7,6 +7,7 @@ function input.load()
     input.key_plus = "+"
     input.key_minus = "-"
     input.key_reset = "r"
+    input.key_rain = "f"
 end
 
 function input.keypressed(key)
