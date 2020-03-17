@@ -24,7 +24,7 @@ function input.keypressed(key)
         game.cookieRate = game.cookieRate - 100
     end
     if key == input.key_plus then
-        game.clickRate = game.clickRate + 100
+        game.clickRate = game.clickRate + 100000
         game.cookieRate = game.cookieRate + 100
     end
     if key == input.key_reset then
