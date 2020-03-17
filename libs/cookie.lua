@@ -10,8 +10,8 @@ function cookie.load(image)
     cookie.color = {1,1,1,0.8}
 end
 
-function cookie.update()
-
+function cookie.update(dt)
+    game.cookies = game.cookies + game.cookieRate * dt
 end
 
 function cookie.draw()
@@ -25,8 +25,8 @@ function cookie.hover(bool)
         cookie.color = {1,1,1,1}
         cookie.sx = cookie.sx + 0.1
         cookie.sy = cookie.sy + 0.1
-        cookie.x = cookie.x-16
-        cookie.y = cookie.y-16
+        cookie.x = cookie.x-17
+        cookie.y = cookie.y-17
     else
         cookie.color = {1,1,1,0.8}
     end
@@ -43,9 +43,9 @@ end
 
 function cookie.updateText()
     for i, v in pairs(numberString) do
-        v.y = v.y - 1
-        v.color[4] = v.color[4] - 0.01
-        if v.color[4] <= 0.7 then
+        v.y = v.y - 2
+        v.color[4] = v.color[4] - 0.02
+        if v.color[4] <= 0.5 then
             table.remove(numberString,i)
         end
     end

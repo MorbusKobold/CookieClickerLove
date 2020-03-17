@@ -6,6 +6,7 @@ function input.load()
     input.key_t = "t"
     input.key_plus = "+"
     input.key_minus = "-"
+    input.key_reset = "r"
 end
 
 function input.keypressed(key)
@@ -23,6 +24,9 @@ function input.keypressed(key)
     end
     if key == input.key_plus then
         game.clickRate = game.clickRate + 100
+    end
+    if key == input.key_reset then
+        game.cookies = 0
     end
 end
 

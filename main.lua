@@ -32,6 +32,9 @@ function love.update(dt)
     mouse.update()
     cookie.updateText()
 
+    -- update cookies
+    cookie.update(dt)
+
     if collision.pointInCircle(mouse.x,mouse.y,circle.x,circle.y,circle.radius) then
         hasCollision = true
         cookie.hover(true)
@@ -53,8 +56,9 @@ function love.draw()
         love.graphics.setColor(circle.color)
         love.graphics.circle("line",circle.x,circle.y,circle.radius)
         love.graphics.setColor(1,1,1)
-        love.graphics.print("Cookies: " .. game.cookies,0,16)
+        love.graphics.print("Cookies: " .. math.floor(game.cookies),0,16)
         love.graphics.print("clickRate: " .. game.clickRate,0,32)
+        love.graphics.print("cookieRate: " .. game.cookieRate,0,48)
     end
     if t then
         love.graphics.draw(images.tileset,0,0,0,0.4,0.5)
