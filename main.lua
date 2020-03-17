@@ -36,11 +36,7 @@ function love.update(dt)
     cookie.update(dt)
     cookie.updateRain()
 
-    if game.cookies >= 1000 then
-        game.cookies = 0
-        game.cookieRate = game.cookieRate + 10
-        cookie.createRain(5)
-    end
+    game.update()
 
     if collision.pointInCircle(mouse.x,mouse.y,circle.x,circle.y,circle.radius) then
         hasCollision = true
