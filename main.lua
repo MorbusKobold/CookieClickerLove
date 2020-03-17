@@ -37,9 +37,9 @@ function love.update(dt)
     cookie.updateRain()
 
     if game.cookies >= 1000 then
-        game.cookies = game.cookies - 1000
-        game.cookieRate = game.cookieRate + 100
-        cookie.createRain(50)
+        game.cookies = 0
+        game.cookieRate = game.cookieRate + 10
+        cookie.createRain(5)
     end
 
     if collision.pointInCircle(mouse.x,mouse.y,circle.x,circle.y,circle.radius) then
