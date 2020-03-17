@@ -57,6 +57,7 @@ function cookie.drawText()
         love.graphics.print(v.string,v.x,v.y)
         love.graphics.setColor(1,1,1,1)
     end
+    love.graphics.print("Cookies: " .. math.floor(game.cookies),window.WIDTH/2-70,16)
 end
 
 function cookie.click(bool)

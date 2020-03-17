@@ -3,7 +3,7 @@ local window = {
     TITLE = "Cookie Clicker",
     WIDTH = 800,
     HEIGHT = 600,
-    FONT = love.graphics.newFont(18)
+    FONT = love.graphics.newFont("fonts/font4.ttf", 32)
 }
 
 function window.load()

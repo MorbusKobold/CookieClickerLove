@@ -1,7 +1,7 @@
 local game = {
     cookies = 0,
     clickRate = 1,
-    cookieRate = 0
+    cookieRate = 100
 }
 
 function game.update()

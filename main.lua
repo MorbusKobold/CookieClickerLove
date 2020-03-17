@@ -56,9 +56,8 @@ function love.draw()
         love.graphics.setColor(circle.color)
         love.graphics.circle("line",circle.x,circle.y,circle.radius)
         love.graphics.setColor(1,1,1)
-        love.graphics.print("Cookies: " .. math.floor(game.cookies),0,16)
         love.graphics.print("clickRate: " .. game.clickRate,0,32)
-        love.graphics.print("cookieRate: " .. game.cookieRate,0,48)
+        love.graphics.print("cookieRate: " .. game.cookieRate,0,64)
     end
     if t then
         love.graphics.draw(images.tileset,0,0,0,0.4,0.5)
