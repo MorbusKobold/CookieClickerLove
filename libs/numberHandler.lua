@@ -8,8 +8,8 @@ local numberHandler = {
         [3] = "trillion", -- 10^12
         [4] = "quadrillion", -- 10^15
         [5] = "quintillion", -- 10^18
-        [6] = "sextillion",
-        [7] = "septillion",
+        [6] = "sextillion", -- 10^21
+        [7] = "septillion", -- 10^24
         [8] = "octillion",
         [9] = "nonillion",
         [10] = "decillion",
@@ -36,13 +36,15 @@ function numberHandler.numberToText(number)
     if number >= numberHandler.maximum then
         numberHandler.minimum = numberHandler.maximum
         numberHandler.maximum = numberHandler.maximum * 1000
-        if numberHandler.i <= 50 then
+        if numberHandler.i < 50 then
             numberHandler.i = numberHandler.i + 1
+        else
+            numberHandler.i = 50
         end
         cookie.createRain(numberHandler.i*8)
     end
     if number >= 0 and number < numberHandler.minimum then
-        string = round(number, 3)
+        string = round(number, 0)
         return string
     elseif number >= numberHandler.minimum and number < numberHandler.maximum and numberHandler.i <= #numberHandler.names then
         string = round(number/numberHandler.minimum, 3) .. " " .. numberHandler.names[numberHandler.i]
