@@ -59,7 +59,16 @@ function cookie.drawText()
         love.graphics.print(v.string,v.x,v.y)
         love.graphics.setColor(1,1,1,1)
     end
-    love.graphics.print("Cookies: " .. numberHandler.numberToText(game.cookies),window.WIDTH/2-300,16)
+    local length = string.len(numberHandler.numberToText(game.cookies))
+    if length < 3 then
+        length = 10
+    end
+    love.graphics.setColor(0.5,0.5,0.5,0.5)
+    love.graphics.rectangle("fill",window.WIDTH/2-350+100-25,64-25,length*25+30,80)
+    love.graphics.setColor(1,0,0)
+    love.graphics.print("Cookies: ",window.WIDTH/2-350+100,64)
+    love.graphics.setColor(1,1,1)
+    love.graphics.print(numberHandler.numberToText(game.cookies),window.WIDTH/2-225+100,64)
     love.graphics.setFont(window.defaultFont)
 end
 
